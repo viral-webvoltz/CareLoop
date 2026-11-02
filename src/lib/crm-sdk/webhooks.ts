@@ -20,7 +20,7 @@ export function verifyWebhook({
   signature: string | null | undefined;
   secret: string;
   toleranceSeconds?: number;
-  now?: number;
+  now?: number; 
 }): WebhookEvent {
   if (!signature) throw new Error('Missing x-webhook-signature header');
   const parts = signature.split(',').map((p) => p.trim().split('='));
