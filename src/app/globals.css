@@ -1,0 +1,111 @@
+@import 'tailwindcss';
+
+/* The clinic's side of the page: pale sage paper, deep teal ink. */
+:root {
+  --background: #eef5f2;
+  --foreground: #0f2e2c;
+  --card: #ffffff;
+  --muted: #55706c;
+  --border: #cfe0da;
+  --accent: #d9ede6;
+  --primary: #0e7c7b;
+  --primary-foreground: #ffffff;
+  --success: #15803d;
+  --warning: #a16207;
+  --destructive: #c0392b;
+  --crm: #4c7dff;
+}
+
+/* The CRM's side: the same tokens, redefined, so every component adapts by sitting inside this class. */
+.crm-surface {
+  --background: #0b1220;
+  --foreground: #e6ebf5;
+  --card: #121b2e;
+  --muted: #8a97b1;
+  --border: #22304a;
+  --accent: #1a2742;
+  --primary: #5b8cff;
+  --primary-foreground: #ffffff;
+  --success: #3ddc97;
+  --warning: #f5b94a;
+  --destructive: #ff7a7a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-crm: var(--crm);
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-mono: var(--font-code), ui-monospace, monospace;
+}
+
+button:not(:disabled),
+[role='button'],
+select,
+summary,
+label[for] {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* The one moment of motion: a row that just arrived from the other side glows once. */
+@keyframes arrive {
+  from {
+    background-color: color-mix(in srgb, var(--primary) 28%, transparent);
+    transform: translateX(-6px);
+  }
+  to {
+    background-color: transparent;
+    transform: none;
+  }
+}
+
+@keyframes beat {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.arrive {
+  animation: arrive 1.6s ease-out;
+}
+
+.beat {
+  animation: beat 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrive,
+  .beat {
+    animation: none;
+  }
+}
