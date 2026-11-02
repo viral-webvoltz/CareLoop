@@ -1,5 +1,5 @@
 import 'server-only';
-import { CrmError } from '@relio/crm-sdk';
+import { CrmError } from '@/lib/crm-sdk';
 import type { ZodError } from 'zod';
 import type { ApiFailure, ApiSuccess } from './types';
 

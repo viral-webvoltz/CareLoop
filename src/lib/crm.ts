@@ -1,5 +1,5 @@
 import 'server-only';
-import { RelioCRM } from '@relio/crm-sdk';
+import { RelioCRM } from '@/lib/crm-sdk';
 import { getEnv } from '@/config/env';
 
 let client: RelioCRM | undefined;

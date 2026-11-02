@@ -1,4 +1,4 @@
-import { verifyWebhook } from '@relio/crm-sdk';
+import { verifyWebhook } from '@/lib/crm-sdk';
 import { getEnv } from '@/config/env';
 import { fail, ok } from '@/lib/api/server-response';
 import { addEvent } from '@/modules/webhooks/services/event-store';
